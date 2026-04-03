@@ -1,0 +1,65 @@
+name: Create new release
+
+on:
+  push:
+    branches:
+      - "**"
+    tags:
+      - "!**"
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    #runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v6
+    - name: Install fuse and libfuse2
+      run: sudo apt install fuse libfuse2
+
+    - name: appimagetool
+      run: |
+        set -x
+        cd ../
+
+        #wget -q https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
+        version_go_appimage=$(wget -q -O - https://api.github.com/repos/probonopd/go-appimage/releases | grep "\"name.*appimagetool-.*-x86_64.AppImage\"" | head -n 1 | cut -d '-' -f2)
+        echo "version_go_appimage: $version_go_appimage"
+        wget -q "https://github.com/probonopd/go-appimage/releases/download/continuous/appimagetool-$version_go_appimage-x86_64.AppImage" -O appimagetool-x86_64.AppImage
+        chmod +x appimagetool-x86_64.AppImage
+        pwd; ls -lah
+
+    - name: Make AppImage
+      run: |
+        set -x
+        version=$(grep -o "WinRAR:.*" README.md | cut -d ' ' -f2)
+        echo "WinRAR version: $version"
+        rm -rv .git/ .github/ .gitignore
+
+        ## Aded key / crack
+        wget https://raw.githubusercontent.com/Fonkelflare/winrar-rarreg.key/main/rarreg.key -O drive_c/WinRAR/rarreg.key
+
+        cd ../
+        ARCH=x86_64 VERSION="${version}-1_JB" ./appimagetool-x86_64.AppImage WinRAR_AppImage/
+        pwd; ls -lah
+
+    - name: Rename AppImage and generate MD5
+      run: |
+        set -x
+        cd ../
+
+        fileName=$(ls WinRAR*.AppImage)
+        echo "fileName: $fileName"
+        md5sum "${fileName}" > "${fileName}".md5
+        pwd; ls -lah
+        mv "${fileName}" "${fileName}".zsync "${fileName}".md5 WinRAR_AppImage/
+
+    - uses: xresloader/upload-to-github-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        file: "WinRAR*.AppImage; WinRAR*.zsync; WinRAR*.md5"
+        #overwrite: true
+        verbose: true
+        draft: false
+        default_release_name: "WinRAR V in AppImage"
