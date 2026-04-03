@@ -4,12 +4,12 @@ HERE=$(cd "${0%/*}" && echo $PWD)
 ZENITY_TITLE='Running'
 ZENITY_ICON_NAME=$(cat "$HERE/"*.desktop | grep -w -m1 'Icon' | cut -d '=' -f2)
 
-PROGNAME='WinRAR'
-ICON="$HERE/winrar.png"
-PROGDIR="$HOME/.config/WinRAR_AppImage"
+PROGNAME='Deffy'
+ICON="$HERE/Deffy.png"
+PROGDIR="$HOME/.config/Deffy_AppImage"
 
-Diretorio_do_executavel_windows='C:\\WinRAR\\'
-Arquivo_exe_executavel_windows='C:\\WinRAR\\WinRAR.exe'
+Diretorio_do_executavel_windows='C:\\Deffy\\'
+Arquivo_exe_executavel_windows='C:\\Deffy\\Deffy.exe'
 Arquitetura_do_windows="win64" # win32 para windows 32bits (i386) ou win64 para windows de 64bits
 Dlls_para_desabilitar="d3d12.dll,winemenubuilder.exe,winemine.exe,winedbg.exe,progman.exe,reg.exe,regsvr32.exe,robocopy.exe,taskmgr.exe,uninstaller.exe,winecfg.exe,control.exe,appwiz.cpl,inetcpl.cpl,mscoree,mshtml,atiadlxx,nvapi64,nvapi"
 mkdir -p "$PROGDIR"
