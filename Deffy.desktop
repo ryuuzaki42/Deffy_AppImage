@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Deffy
+Exec=Deffy
+Terminal=false
+Type=Application
+StartupNotify=false
+Icon=Deffy
+StartupWMClass=Deffy
+MimeType=application/x-dff:application/x-dsf
+Categories=Utility;
