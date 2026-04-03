@@ -1,17 +1,17 @@
 
-# WinRAR_AppImage
+# Deffy_AppImage
 
- - WinRAR + Wine
+ - Deffy + Wine
 
-WinRAR is a file archiver and compression utility for Microsoft Windows
+Deffy converts DFF files (either containing DSD or DST) to DSF files or converts DSF files to DFF files
 
-https://www.win-rar.com/
+https://www.mymymyohmy.com/software/deffy.html
 
-## Repository: https://github.com/ryuuzaki42/WinRAR_AppImage
-     WinRAR: 7.20
+## Repository: https://github.com/ryuuzaki42/Deffy_AppImage
+     Deffy: 6.0.0
 ---
 ### To change font size, change the DPI value in LogPixels
-In the user.reg in `~/.config/WinRAR_AppImage/user.reg`
+In the user.reg in `~/.config/Deffy_AppImage/user.reg`
 
 At the end of block `[Control Panel\\Desktop]`
 
@@ -27,4 +27,4 @@ At the end of block `[Control Panel\\Desktop]`
 `"LogPixels"=dword:000000144`
 
 ---
-https://www.win-rar.com/download.html
+https://www.mymymyohmy.com/software/deffy.html#download
