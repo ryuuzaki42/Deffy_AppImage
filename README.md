@@ -11,7 +11,7 @@ https://www.mymymyohmy.com/software/deffy.html
     Deffy: 6.0.1
 
 ---
-## Using Wine in AppImage from https://github.com/mmtrt/WINE_AppImage - Stable 
+## Using Wine in AppImage from https://github.com/mmtrt/WINE_AppImage - Stable
 ### Change made:
 
 #### Remove 32 bits
