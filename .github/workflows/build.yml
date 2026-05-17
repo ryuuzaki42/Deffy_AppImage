@@ -45,9 +45,10 @@ jobs:
         cp README.md squashfs-root/
         cd AppDir/
 
-        wget -q https://github.com/ryuuzaki42/Deffy_AppImage_2/releases/download/6.0.0_0_exe/Deffy.desktop
-        wget -q https://github.com/ryuuzaki42/Deffy_AppImage_2/releases/download/6.0.0_0_exe/Deffy.png
-        wget -q https://github.com/ryuuzaki42/Deffy_AppImage_2/releases/download/${version}_0_exe/Deffy.exe
+        wget -q https://github.com/ryuuzaki42/Deffy_AppImage/releases/download/6.0.0_0_exe/Deffy.desktop
+        wget -q https://github.com/ryuuzaki42/Deffy_AppImage/releases/download/6.0.0_0_exe/Deffy.png
+        wget -q https://github.com/ryuuzaki42/Deffy_AppImage/releases/download/${version}_0_exe/Deffy.exe
+        wget -q https://github.com/ryuuzaki42/Deffy_AppImage/releases/download/${version}_0_exe/libwavpack-1.dll
         pwd; ls -lah
         rm .DirIcon wine.svg org.winehq.wine.desktop
 
